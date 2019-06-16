@@ -1,0 +1,28 @@
+type User {
+  id: ID! @id
+  email: String @unique
+  name: String!
+}
+
+type Product {
+  id: ID! @id
+  title: String!
+  description: String!
+  price: String!
+  material: String!
+  brand: String!
+  slug: String!
+  category: Category!
+  images: [Image!]!
+}
+
+type Image {
+  id: ID! @id
+  url: String!
+  description: String!
+}
+
+type Category {
+  id: ID! @id
+  title: String
+}
