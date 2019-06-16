@@ -1,24 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Query } from 'react-apollo';
+import { gql } from 'apollo-boost';
+
+const q = gql`
+  {
+    products {
+      title
+      description
+      material
+      price
+      description
+      images {
+        url
+      }
+      category {
+        title
+      }
+    }
+  }
+`;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Query query={q}>
+        {({ loading, error, data }) => {
+          if (loading) return <p>Loading...</p>;
+          if (error) return <p>Error :(</p>;
+
+          return data.products.map(({ title, id, material }) => (
+            <div key={id}>
+              <p>{title}</p>
+
+              <div>
+                - <p>material: {material}</p>
+              </div>
+            </div>
+          ));
+        }}
+      </Query>
     </div>
   );
 }
