@@ -1,10 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-boost';
 
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/styles';
+
 import App from './App';
+import theme from './theme';
 import * as serviceWorker from './serviceWorker';
+
+import './styles.css';
 
 const client = new ApolloClient({
   uri: 'http://localhost:4000',
@@ -12,7 +19,10 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <App />
+    </ThemeProvider>
   </ApolloProvider>,
   document.getElementById('root')
 );
