@@ -348,6 +348,7 @@ export interface ImageWhereInput {
 
 export type ProductWhereUniqueInput = AtLeastOne<{
   id: ID_Input;
+  slug?: String;
 }>;
 
 export interface ProductWhereInput {

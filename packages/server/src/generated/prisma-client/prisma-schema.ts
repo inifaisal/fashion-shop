@@ -605,6 +605,7 @@ input ProductWhereInput {
 
 input ProductWhereUniqueInput {
   id: ID
+  slug: String
 }
 
 type Query {

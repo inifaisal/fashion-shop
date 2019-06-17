@@ -6,7 +6,7 @@
 export default {
   uniqueFieldsByModel: {
     User: ['id', 'email'],
-    Product: ['id'],
+    Product: ['id', 'slug'],
     Image: ['id'],
     Category: ['id']
   },
@@ -1824,6 +1824,16 @@ export default {
             "type": {
               "kind": "SCALAR",
               "name": "ID",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "slug",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null

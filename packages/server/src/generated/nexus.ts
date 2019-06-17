@@ -338,6 +338,7 @@ export interface NexusGenInputs {
   }
   ProductWhereUniqueInput: { // input type
     id?: string | null; // ID
+    slug?: string | null; // String
   }
   UserWhereInput: { // input type
     AND?: NexusGenInputs['UserWhereInput'][] | null; // [UserWhereInput!]

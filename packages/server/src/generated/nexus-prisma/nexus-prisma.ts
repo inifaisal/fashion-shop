@@ -2335,10 +2335,12 @@ export type UserWhereInputInputObject =
   
 export interface ProductWhereUniqueInput {
   id?: string | null
+  slug?: string | null
 }
 export type ProductWhereUniqueInputInputObject =
   | Extract<keyof ProductWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'slug', alias?: string  } 
   
 export interface ImageWhereInput {
   id?: string | null
