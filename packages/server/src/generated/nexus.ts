@@ -246,6 +246,14 @@ export interface NexusGenInputs {
     brand_not_starts_with?: string | null; // String
     brand_starts_with?: string | null; // String
     category?: NexusGenInputs['CategoryWhereInput'] | null; // CategoryWhereInput
+    createdAt?: any | null; // DateTime
+    createdAt_gt?: any | null; // DateTime
+    createdAt_gte?: any | null; // DateTime
+    createdAt_in?: any[] | null; // [DateTime!]
+    createdAt_lt?: any | null; // DateTime
+    createdAt_lte?: any | null; // DateTime
+    createdAt_not?: any | null; // DateTime
+    createdAt_not_in?: any[] | null; // [DateTime!]
     description?: string | null; // String
     description_contains?: string | null; // String
     description_ends_with?: string | null; // String
@@ -447,6 +455,7 @@ export interface NexusGenRootTypes {
   }
   Product: { // root type
     brand: string; // String!
+    createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
     material: string; // String!
@@ -481,6 +490,7 @@ export interface NexusGenRootTypes {
   Float: number;
   Boolean: boolean;
   ID: string;
+  DateTime: any;
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
@@ -568,6 +578,7 @@ export interface NexusGenFieldTypes {
   Product: { // field return type
     brand: string; // String!
     category: NexusGenRootTypes['Category']; // Category!
+    createdAt: any; // DateTime!
     description: string; // String!
     id: string; // ID!
     images: NexusGenRootTypes['Image'][] | null; // [Image!]
@@ -740,7 +751,7 @@ export type NexusGenEnumNames = "CategoryOrderByInput" | "ImageOrderByInput" | "
 
 export type NexusGenInterfaceNames = never;
 
-export type NexusGenScalarNames = "Boolean" | "Float" | "ID" | "Int" | "String";
+export type NexusGenScalarNames = "Boolean" | "DateTime" | "Float" | "ID" | "Int" | "String";
 
 export type NexusGenUnionNames = never;
 

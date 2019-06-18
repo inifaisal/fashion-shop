@@ -14,6 +14,7 @@ type Product {
   slug: String! @unique
   category: Category!
   images: [Image!]!
+  createdAt: DateTime! @createdAt
 }
 
 type Image {

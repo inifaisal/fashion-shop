@@ -244,7 +244,9 @@ export type ProductOrderByInput =
   | "brand_ASC"
   | "brand_DESC"
   | "slug_ASC"
-  | "slug_DESC";
+  | "slug_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -454,6 +456,14 @@ export interface ProductWhereInput {
   images_every?: ImageWhereInput;
   images_some?: ImageWhereInput;
   images_none?: ImageWhereInput;
+  createdAt?: DateTimeInput;
+  createdAt_not?: DateTimeInput;
+  createdAt_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_not_in?: DateTimeInput[] | DateTimeInput;
+  createdAt_lt?: DateTimeInput;
+  createdAt_lte?: DateTimeInput;
+  createdAt_gt?: DateTimeInput;
+  createdAt_gte?: DateTimeInput;
   AND?: ProductWhereInput[] | ProductWhereInput;
   OR?: ProductWhereInput[] | ProductWhereInput;
   NOT?: ProductWhereInput[] | ProductWhereInput;
@@ -933,6 +943,7 @@ export interface Product {
   material: String;
   brand: String;
   slug: String;
+  createdAt: DateTimeOutput;
 }
 
 export interface ProductPromise extends Promise<Product>, Fragmentable {
@@ -953,6 +964,7 @@ export interface ProductPromise extends Promise<Product>, Fragmentable {
     first?: Int;
     last?: Int;
   }) => T;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ProductSubscription
@@ -975,6 +987,7 @@ export interface ProductSubscription
     first?: Int;
     last?: Int;
   }) => T;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface ProductConnection {
@@ -1245,6 +1258,7 @@ export interface ProductPreviousValues {
   material: String;
   brand: String;
   slug: String;
+  createdAt: DateTimeOutput;
 }
 
 export interface ProductPreviousValuesPromise
@@ -1257,6 +1271,7 @@ export interface ProductPreviousValuesPromise
   material: () => Promise<String>;
   brand: () => Promise<String>;
   slug: () => Promise<String>;
+  createdAt: () => Promise<DateTimeOutput>;
 }
 
 export interface ProductPreviousValuesSubscription
@@ -1269,6 +1284,7 @@ export interface ProductPreviousValuesSubscription
   material: () => Promise<AsyncIterator<String>>;
   brand: () => Promise<AsyncIterator<String>>;
   slug: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
 export interface UserSubscriptionPayload {
@@ -1338,6 +1354,16 @@ export type Int = number;
 The `Boolean` scalar type represents `true` or `false`.
 */
 export type Boolean = boolean;
+
+/*
+DateTime scalar input type, allowing Date
+*/
+export type DateTimeInput = Date | string;
+
+/*
+DateTime scalar output type, which is always a string
+*/
+export type DateTimeOutput = string;
 
 export type Long = string;
 

@@ -629,6 +629,7 @@ type ProductObject =
   | { name: 'slug', args?: [] | false, alias?: string  } 
   | { name: 'category', args?: [] | false, alias?: string  } 
   | { name: 'images', args?: ProductImagesArgs[] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
 
 type ProductFields =
   | 'id'
@@ -640,6 +641,7 @@ type ProductFields =
   | 'slug'
   | 'category'
   | 'images'
+  | 'createdAt'
 
 
 type ProductImagesArgs =
@@ -734,6 +736,14 @@ export interface ProductFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Image[]> | prisma.Image[]
+  }
+  createdAt: {
+    type: 'DateTime'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
   }
 }
   
@@ -1934,6 +1944,7 @@ type ProductPreviousValuesObject =
   | { name: 'material', args?: [] | false, alias?: string  } 
   | { name: 'brand', args?: [] | false, alias?: string  } 
   | { name: 'slug', args?: [] | false, alias?: string  } 
+  | { name: 'createdAt', args?: [] | false, alias?: string  } 
 
 type ProductPreviousValuesFields =
   | 'id'
@@ -1943,6 +1954,7 @@ type ProductPreviousValuesFields =
   | 'material'
   | 'brand'
   | 'slug'
+  | 'createdAt'
 
 
 
@@ -1999,6 +2011,14 @@ export interface ProductPreviousValuesFieldDetails {
   }
   slug: {
     type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  createdAt: {
+    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -2540,6 +2560,14 @@ export interface ProductWhereInput {
   images_every?: ImageWhereInput | null
   images_some?: ImageWhereInput | null
   images_none?: ImageWhereInput | null
+  createdAt?: string | null
+  createdAt_not?: string | null
+  createdAt_in?: string[]
+  createdAt_not_in?: string[]
+  createdAt_lt?: string | null
+  createdAt_lte?: string | null
+  createdAt_gt?: string | null
+  createdAt_gte?: string | null
   AND?: ProductWhereInput[]
   OR?: ProductWhereInput[]
   NOT?: ProductWhereInput[]
@@ -2648,6 +2676,14 @@ export type ProductWhereInputInputObject =
   | { name: 'images_every', alias?: string  } 
   | { name: 'images_some', alias?: string  } 
   | { name: 'images_none', alias?: string  } 
+  | { name: 'createdAt', alias?: string  } 
+  | { name: 'createdAt_not', alias?: string  } 
+  | { name: 'createdAt_in', alias?: string  } 
+  | { name: 'createdAt_not_in', alias?: string  } 
+  | { name: 'createdAt_lt', alias?: string  } 
+  | { name: 'createdAt_lte', alias?: string  } 
+  | { name: 'createdAt_gt', alias?: string  } 
+  | { name: 'createdAt_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 

@@ -109,6 +109,8 @@ input CategoryWhereUniqueInput {
   id: ID
 }
 
+scalar DateTime
+
 type Image {
   description: String!
   id: ID!
@@ -304,6 +306,7 @@ type PageInfo {
 type Product {
   brand: String!
   category: Category!
+  createdAt: DateTime!
   description: String!
   id: ID!
   images(after: String, before: String, first: Int, last: Int, orderBy: ImageOrderByInput, skip: Int, where: ImageWhereInput): [Image!]
@@ -385,6 +388,14 @@ input ProductWhereInput {
   brand_not_starts_with: String
   brand_starts_with: String
   category: CategoryWhereInput
+  createdAt: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_not: DateTime
+  createdAt_not_in: [DateTime!]
   description: String
   description_contains: String
   description_ends_with: String

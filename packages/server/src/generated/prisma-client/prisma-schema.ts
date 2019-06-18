@@ -140,6 +140,8 @@ input CategoryWhereUniqueInput {
   id: ID
 }
 
+scalar DateTime
+
 type Image {
   id: ID!
   url: String!
@@ -405,6 +407,7 @@ type Product {
   slug: String!
   category: Category!
   images(where: ImageWhereInput, orderBy: ImageOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Image!]
+  createdAt: DateTime!
 }
 
 type ProductConnection {
@@ -445,6 +448,8 @@ enum ProductOrderByInput {
   brand_DESC
   slug_ASC
   slug_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type ProductPreviousValues {
@@ -455,6 +460,7 @@ type ProductPreviousValues {
   material: String!
   brand: String!
   slug: String!
+  createdAt: DateTime!
 }
 
 type ProductSubscriptionPayload {
@@ -598,6 +604,14 @@ input ProductWhereInput {
   images_every: ImageWhereInput
   images_some: ImageWhereInput
   images_none: ImageWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [ProductWhereInput!]
   OR: [ProductWhereInput!]
   NOT: [ProductWhereInput!]
