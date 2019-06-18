@@ -37,6 +37,8 @@ const useStyles = makeStyles(theme => ({
 const ProductDetail = ({ product }) => {
   const classes = useStyles();
 
+  document.title = `${product.title} | Fashion Shop`; // change document title
+
   return (
     <Container maxWidth="sm" className={classes.container}>
       <Box my={4}>
