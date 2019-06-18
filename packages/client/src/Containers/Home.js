@@ -12,6 +12,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import Loading from '../Components/Loading';
 import ProductList from '../Components/ProductList';
 import Error from '../Components/Error';
+import Empty from '../Components/Empty';
 
 const GET_PRODUCTS = gql`
   query Products($first: Int, $after: String) {
@@ -65,6 +66,8 @@ export default () => (
 
         const products = data.productsConnection.edges;
         const pageInfo = data.productsConnection.pageInfo;
+
+        if (products.length === 0) return <Empty />;
 
         return (
           <InfiniteScroll
