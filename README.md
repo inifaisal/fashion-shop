@@ -6,8 +6,7 @@ This project build with [Reactjs](https://reactjs.org) & [Prisma](https://prisma
 
 ### Server
 
-you must have docker & docker compose installed on your machine
-install [prisma](https://prisma.io) globally
+you must have docker & docker compose installed on your machine and also you must have to install [prisma](https://prisma.io) globally
 
 ```
 npm install -g prisma
