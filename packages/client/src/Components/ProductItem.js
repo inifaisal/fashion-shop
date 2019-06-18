@@ -35,7 +35,11 @@ const ProductItem = ({ product }) => {
     <div className={classes.mainContainer}>
       <Link to={`/products/${product.slug}`} className={classes.link}>
         <img
-          src={product.images[0].url}
+          src={
+            product.images.length > 0
+              ? product.images[0].url
+              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBn688G88tayXqKMtO0RKxnIFefAB-oyMO-XjmEZOgs7x3bUVp'"
+          }
           alt="product"
           width="100%"
           style={{ borderRadius: 8 }}
@@ -46,7 +50,7 @@ const ProductItem = ({ product }) => {
             {product.title}
           </Typography>
           <Typography variant="caption" className={classes.price}>
-            159.000
+            {product.price}
           </Typography>
         </div>
       </Link>
